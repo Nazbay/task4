@@ -22,7 +22,68 @@ function task(){
   }
 }
 
+// TASK_2
+function task2(){
+		var today = new Date();  
+var day = today.getDay();  
+var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];  
+var week="Today is : " + daylist[day] + ".<br>";  
+var hour = today.getHours();  
+var minute = today.getMinutes();  
+var second = today.getSeconds();  
+var prepand = (hour >= 12)? " PM ":" AM ";  
+hour = (hour >= 12)? hour - 12: hour;  
+if (hour===0 && prepand===' PM ')   
+{   
+if (minute===0 && second===0)  
+{   
+hour=12;  
+prepand=' Noon';  
+}   
+else  
+{   
+hour=12;  
+prepand=' PM';  
+}   
+}   
+if (hour===0 && prepand===' AM ')   
+{   
+if (minute===0 && second===0)  
+	{   
+hour=12;  
+prepand=' Midnight';  
+}   
+else  
+{   
+hour=12;  
+prepand=' AM';  
+}   
+}  
+document.querySelector('.task-2').innerHTML =week+"Current Time : "+hour + prepand + " : " + minute + " : " + second;
+	}
 
+
+// TASK_3
+
+function reverseNum(){
+	var str=prompt("enter num");    
+	let reversed = "";
+  for (var i = str.length - 1; i >= 0; i--){        
+    reversed += str[i];
+  }    
+	document.querySelector('.task-3').innerHTML =reversed;
+}
+
+// TASK_4
+
+function number(){
+	var n=parseInt(prompt("Enter a number:",n));
+	var k=n;
+	for(var i=n-1;i>1;i--){
+		n*=i;
+	}
+	document.querySelector('.task-4').innerHTML =k+"! = "+n;
+}
 
 // TASK_5
 function largeNum()
@@ -46,6 +107,48 @@ function largeNum()
        }
 
 
+      //  TASK_6
+      function colors(){
+         let  myColor = ["Red", "Green", "White", "Black"];
+	for(let i=0;i<myColor.length;i++){
+			myColor.toString();
+			let plus=myColor.join('+');
+	}
+document.querySelector('.task-6').innerHTML =myColor+"<br>"+plus;
+      }
+
+
+      // TASK_7
+      function month(){
+ 	var month="";
+ 	var month2="";
+ 	var monthes=["January","February","March","April","May","Jun","July","August","September","October","November","Desember"];
+ 	var month_name1=new Date("10/11/2009");
+ 	var month_name2=new Date("11/13/2014");
+ 	for(var i=0;i<=12;i++){
+ 	if(i==month_name1.getMonth()){
+ 		month+=monthes[i];
+ 	}
+ 	if(i==month_name2.getMonth()){
+ 		month2+=monthes[i]
+ 	}
+ }
+ 	document.querySelector('.task-7').innerHTML =month+"<br>"+month2;
+ }
+
+// TASK_8
+ function upper(aChar=prompt("Enter a string:"))
+   {	
+      var myCharCode = aChar.charCodeAt(0);
+   
+      if((myCharCode > 64) && (myCharCode <  91))
+      {
+         answer="Uppercase!";
+      }
+      else
+   			answer="Not an Uppercase!";
+   document.querySelector('.task-8').innerHTML =answer;
+   }
       //  TASK_9
        function myFace() {
  let pen = document.getElementById("myCanvas");
@@ -137,7 +240,7 @@ let x = document.getElementById("cartitems");
 
 
 // TASK_6
-function addinfo(){
+function addInfo(){
  let ul = document.createElement('ul');
  document.body.appendChild(ul);
   while (true) {
@@ -168,11 +271,49 @@ referenceNode[i].appendChild(newNode);
 
     <!-- PART_1 -->
     <!-- TASK_1 -->
-    <!-- <body onload="task();">  -->
+    <h1>TASK 1</h1>
    <div class="task">
    </div>
 
+   <button onclick="task()">submit</button>
+
+
+      <!-- TASK_2 -->
+   <h1>TASK 2</h1>
+   <div class="task-2">
+
+		<p>
+			Write a JavaScript program to display the current day and time in the following format. <br> 
+			Sample Output : <br>
+		
+		</p>
+		<button class="btn" onclick="task2()">Ответ</button>
+	</div>
+
+
+
+
+ <!-- TASK_3 -->
+   <h1>TASK 3</h1>
+   <div class="task-3">
+      <p>Write a JavaScript function that reverse a number. <br></p>
+   </div>
+
+   <button onclick="reverseNum()">submit</button>
+
+
+    <!-- TASK_4 -->
+    <h1>TASK 4</h1>
+    <div class="task-4">
+       <p>Write a JavaScript program to calculate the factorial of a number.<br></p>
+    </div>
+ 
+    <button onclick="number()">submit</button>
+ 
+
+
    <!-- TASK_5 -->
+   <h1>TASK 5</h1>
    <h1>Check largest number </h1>
    <br>
    Enter number 1: <input type="text" id="num1"></input><br>
@@ -180,15 +321,49 @@ referenceNode[i].appendChild(newNode);
 <button onclick="largeNum()">submit</button>
 
 
+<!-- TASK_6 -->
+<h1>TASK 6</h1>
+
+<div class="task-6">
+<p>Write a simple JavaScript program to join all elements of the following array into a string.<br></p>
+<button onclick="colors()">submit</button>
+</div>
+
+
+<!-- TASK_7 -->
+
+<h1>TASK 7</h1>
+<div class="task-7">
+   <p >
+      Write a JavaScript function to get the month name from a particular date. <br>
+   </p>
+   <button class="btn" onclick="month()">Ответ</button>
+</div>
+
+
+<!-- TASK_8 -->
+
+<h1>TASK 8</h1>
+<div class="task-8">
+   <p >
+      Write a JavaScript program to test the first character of a string is uppercase or not
+      </p>
+   <button class="btn" onclick="upper()">Ответ</button>
+</div>
+
 <!-- TASK_9 -->
-<!-- <body onload="myFace(), myEye(), mySmile();">   -->
+<h1>TASK 9</h1>
 <div>
    <canvas id="myCanvas"></canvas>
  </div>
+ <button onclick="myFace(), myEye(), mySmile();">submit</button>
 
+
+ <!-- PART_2 -->
 
  <!-- TASK_1 -->
- <!-- <body onload="Restavlenie()">    -->
+
+ <h1>TASK 1</h1>
  <div>
   
    <div id="string-1">Ядра в вёдра, выдру в тундру!</div>
@@ -208,28 +383,28 @@ referenceNode[i].appendChild(newNode);
      Вытру гетрой выдре морду <br>
      Ядра в вёдра, выдру в тундру! <br>
 </div>
-
+<button onclick="Restavlenie()">submit</button>
 
 <!-- TASK_2 -->
-<!-- <body onload="color();">    -->
+<h1>TASK 2</h1>
 <div class="element">Element 1</div>
 <div class="element">Element 2</div>
 <div class="element">Element 3</div>
 <div class="element">Element 4</div>
 <div class="element">Element 5</div>
 <div class="element">Element 6</div>
-
+<button onclick="color();">submit</button>
 
 <!-- TASK_3 -->
-<!-- <body onload="myContainer();">  -->
+<h1>TASK 3</h1>
 <div>
    <ol id="todolist"></ol>
 
 </div>
-
+<button onclick="myContainer();">submit</button>
 
 <!-- TASK_4 -->
-<!-- <body onload="addinfo()">   -->
+<h1>TASK 4</h1>
 <article>
    <h3>What is Lorem Ipsum?</h3>
   
@@ -244,10 +419,11 @@ referenceNode[i].appendChild(newNode);
    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
   
    </article>
+   <button onclick="addinfo()">submit</button>
 
 
    <!-- TASK_5 -->
-   <!-- <body onload="Remove()">   -->
+   <h1>TASK 5</h1>
    <div>
   
       <div id="cartitems">
@@ -260,14 +436,15 @@ referenceNode[i].appendChild(newNode);
  
    
    </div>
-
+   <button onclick="Remove()">submit</button>
 
    <!-- TASK_6 -->
+   <h1>TASK 6</h1>
    <div>
       Напишите программу для создания списка задач, <br>которые будет вводить пользователь: <br>
    
    
-     <button class="btn" onclick="addinfo()">Ответ</button>
+     <button class="btn" onclick="addInfo()">Ответ</button>
    </div>
 </body>
 </html>
