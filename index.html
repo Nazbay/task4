@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Bootstrap demo</title>
+   <script>
+
+      // PART_1
+      // TASK_1
+function task(){
+  let result="";
+  let answer="";
+  let text="";
+  answer="Результат:<br>";
+  for (let i = 0; i < 10; i++) {
+      setTimeout(function() {
+          result+=" "+i;
+          text="<br>Потому что, проблема в переменной i, проходящая внутри delay(замыкающая) функции setTimeout().Речь не о конкретном значении i в момент цикла,мы просто проходим по i. Затем по времени уже setTimeout() будет воспроизведена, а выражение for уже будет инкрементирована и примет финальное значение"
+          document.querySelector('.task').innerHTML =answer+ result+text;
+      }, 0);
+  }
+}
+
+
+
+// TASK_5
+function largeNum()
+       {
+           let num1, num2;
+           num1 = Number(document.getElementById("num1").value);
+           num2 = Number(document.getElementById("num2").value);
+ 
+           if(num1>num2)
+           {
+               window.alert(num1+"-is Larger");
+           }
+           else if(num2>num1)
+           {
+               window.alert(num2+"-is Larger");
+           }
+           else if(num2>num1 && num2>num1)
+           {
+               window.alert(num2+"is Larger");
+           }
+       }
+
+
+      //  TASK_9
+       function myFace() {
+ let pen = document.getElementById("myCanvas");
+  let draw = pen.getContext("2d");
+  draw.beginPath();
+ draw.fillStyle = "yellow";
+ draw.arc(75, 75, 50, 0, Math.PI * 2, true);
+ draw.closePath();
+ draw.fill();
+}
+function myEye() {
+ let pen = document.getElementById("myCanvas");
+ let eye = pen.getContext("2d");
+ eye.moveTo(55, 50);
+ eye.beginPath();
+ eye.fillStyle = "black";
+ eye.arc(50, 50, 4, 0, Math.PI * 2, true);
+ eye.closePath();
+ eye.fill();
+  eye.moveTo(103, 49);
+  eye.beginPath();
+ eye.fillStyle = "black";
+ eye.arc(100, 50, 4, 0, Math.PI * 2, true);
+ eye.closePath();
+ eye.fill();
+}
+function mySmile() {
+ let pen = document.getElementById("myCanvas");
+ let smile = pen.getContext("2d");
+  smile.moveTo(105, 75);
+ smile.beginPath();
+ smile.strokeStyle = "red";
+ smile.arc(75, 75, 30, 0, Math.PI, false);
+ smile.stroke();
+}
+
+
+
+// PART_2
+// TASK_1
+function Rastavlenie(){
+ var end=document.getElementById("string-6").childNodes[0].nodeValue;
+ document.getElementById("string-6").innerHTML = document.getElementById("string-1").childNodes[0].nodeValue;
+ document.getElementById("string-1").innerHTML = document.getElementById("string-3").childNodes[0].nodeValue;
+document.getElementById("string-3").innerHTML = document.getElementById("string-2").childNodes[0].nodeValue;
+document.getElementById("string-2").innerHTML = document.getElementById("string-5").childNodes[0].nodeValue;
+document.getElementById("string-5").innerHTML = document.getElementById("string-4").childNodes[0].nodeValue;
+document.getElementById("string-4").innerHTML = end;
+}
+
+ 
+
+// TASK_2
+const elems = document.getElementsByClassName('element');
+function color(){
+for(let i = 0; i < elems.length; i++) {
+    if(i < 3) elems[i].style.color = 'red';
+    else elems[i].style.color = 'green';
+}
+}
+
+
+// TASK_3
+function myContainer(){
+ var tasks = ['Buy lemonade', 'Make toasts', 'Repair car', 'Play games', 'Pet a cat'];
+ for(let i=0;i<5;i++){
+  let newLi = document.createElement('li');
+  newLi.className="task";
+  newLi.innerHTML = tasks[i];
+ 
+ todolist.appendChild(newLi);
+}
+}
+
+// TASK_4
+function addinfo(){
+ for(let p of document.querySelectorAll("p"))
+       p.after(document.createElement("hr"));
+   }
+
+   // TASK_5
+   function Remove(){
+let textnode = document.createTextNode("Canned Fish");
+let x = document.getElementById("cartitems");
+ 
+   x.children[1].remove();
+   x.replaceChild(textnode, x.lastChild);
+}
+
+
+// TASK_6
+function addinfo(){
+ let ul = document.createElement('ul');
+ document.body.appendChild(ul);
+  while (true) {
+   let newList = prompt("Введите текст для пункта списка", "");
+ 
+   if (newList === null || newList===0) {
+      break;
+   }
+ 
+   let li = document.createElement('li');
+   li.appendChild(document.createTextNode(newList));
+   ul.appendChild(li);
+}
+}
+function line(){
+ 
+let referenceNode = document.querySelectorAll('p');
+for(let i=0;i<referenceNode.length;i++){
+let newNode = document.createElement('hr');
+referenceNode[i].appendChild(newNode);
+}
+}
+
+
+   </script>
+  </head>
+ <body>   
+
+    <!-- PART_1 -->
+    <!-- TASK_1 -->
+    <!-- <body onload="task();">  -->
+   <div class="task">
+   </div>
+
+   <!-- TASK_5 -->
+   <h1>Check largest number </h1>
+   <br>
+   Enter number 1: <input type="text" id="num1"></input><br>
+   Enter number 2: <input type="text" id="num2"></input><br>
+<button onclick="largeNum()">submit</button>
+
+
+<!-- TASK_9 -->
+<!-- <body onload="myFace(), myEye(), mySmile();">   -->
+<div>
+   <canvas id="myCanvas"></canvas>
+ </div>
+
+
+ <!-- TASK_1 -->
+ <!-- <body onload="Restavlenie()">    -->
+ <div>
+  
+   <div id="string-1">Ядра в вёдра, выдру в тундру!</div>
+   <div id="string-2">Выдрав с выдры в тундре гетры</div>
+   <div id="string-3">В недрах тундры, выдры в гетрах </div>
+   <div id="string-4">Вытру гетрой выдре морду </div>
+   <div id="string-5">Тырят в вёдра ядра кедров!</div>
+   <div id="string-6">Вытру выдрой ядра кедров</div>
+
+   <p>
+     Необходимо поочередно обратиться к каждому тэгу в нужном порядке, и вывести их содержимое в консоль, чтобы получилась осмысленная скороговорка. </p>
+     Вывод в консоли:  <br>
+     В недрах тундры, выдры в гетрах <br>
+     Тырят в вёдра ядра кедров! <br>
+     Выдрав с выдры в тундре гетры <br>
+     Вытру выдрой ядра кедров <br>
+     Вытру гетрой выдре морду <br>
+     Ядра в вёдра, выдру в тундру! <br>
+</div>
+
+
+<!-- TASK_2 -->
+<!-- <body onload="color();">    -->
+<div class="element">Element 1</div>
+<div class="element">Element 2</div>
+<div class="element">Element 3</div>
+<div class="element">Element 4</div>
+<div class="element">Element 5</div>
+<div class="element">Element 6</div>
+
+
+<!-- TASK_3 -->
+<!-- <body onload="myContainer();">  -->
+<div>
+   <ol id="todolist"></ol>
+
+</div>
+
+
+<!-- TASK_4 -->
+<!-- <body onload="addinfo()">   -->
+<article>
+   <h3>What is Lorem Ipsum?</h3>
+  
+   <p>Lorem Ipsum is simply a dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
+  
+   <h3>Where does it come from?</h3>
+  
+   <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. from "The Extremes of Good and Evil" by Cicero</p>
+  
+   <h3>Why do we use it?</h3>
+  
+   <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+  
+   </article>
+
+
+   <!-- TASK_5 -->
+   <!-- <body onload="Remove()">   -->
+   <div>
+  
+      <div id="cartitems">
+       <div class="item">Milk 1 l.<span class="qty"> x 2</span></div>
+       <div class="item">Cola 1.5 l. <span class="qty"> x 1</span></div>
+       <div class="item">Bread<span class="qty"> x 2</span></div>
+       <div class="item">Cheese<span class="qty"> x 1</span></div>
+       <div class="item">Chocolate bar<span class="qty"> x 3</span></div>
+     </div>
+ 
+   
+   </div>
+
+
+   <!-- TASK_6 -->
+   <div>
+      Напишите программу для создания списка задач, <br>которые будет вводить пользователь: <br>
+   
+   
+     <button class="btn" onclick="addinfo()">Ответ</button>
+   </div>
+</body>
+</html>
